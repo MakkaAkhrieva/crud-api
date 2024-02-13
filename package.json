@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --config nodemon.json src/server.ts",
+    "start:dev": "ts-node-dev --exit-child src/server.ts",
+    "start:prod": "npm run build && ts-node dist/main.js",
+    "build": "webpack --config ./webpack.config.js --env mode=prod",
+    "dev": "webpack --config ./webpack.config.js --env mode=dev",
     "test": "jest"
   },
   "author": "Makka Akhrieva",
